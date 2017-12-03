@@ -4,31 +4,25 @@ void Calendar::Day01::run(const int part)
 {
     assert(part == 1 || part == 2);
     std::vector<int> numbers;
-    std::ifstream ifs("../inputs/input_test.dat");
+    std::ifstream ifs("../inputs/day01_input.dat");
 
     char c;
     while (ifs.get(c))
     {
-        numbers.push_back(c - '0'); 
+        numbers.push_back(c - '0');
     }
     int sum = 0;
-    int sum1 = 0.0;
-    int *last1 = nullptr;
-    last1 = new int (9);    
     if (part == 1)
     {
+        int last = numbers.front();
         for (int i = 1; i < numbers.size(); i++)
         {
-            if (numbers[i] == *last1)
+            if (numbers[i] == last)
             {
-                sum += *last1;
-                *last1 = numbers[i];
+                sum += last;
+                last = numbers[i];
             }
         }
-        //check last and first
-        // if(numbers.back() == numbers.front()){
-        //     sum += numbers.back();
-        // }
     }
     else
     {
@@ -41,6 +35,6 @@ void Calendar::Day01::run(const int part)
             }
         }
     }
-    std::cout << "Day 01 - result of part "<< part << " : " << sum << std::endl;
+    std::cout << "Day 01 - result of part " << part << " : " << sum << std::endl;
     ifs.close();
 }

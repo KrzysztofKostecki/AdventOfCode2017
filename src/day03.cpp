@@ -230,19 +230,21 @@ void Calendar::Day03::run(const int part)
     assert(part == 1 || part == 2);
 
     std::ifstream ifs("../inputs/day03_input.dat");
+    int puzzle_input;
+    ifs >> puzzle_input;
     int result = 0;
     if (part == 1)
     {
-        Grid grid(277678);
-        result = grid.taxicab_distance(1, 277678);
+        Grid grid(puzzle_input);
+        result = grid.taxicab_distance(1, puzzle_input);
     }
     else
     {
-        Grid2 grid2(277678);
+        Grid2 grid2(puzzle_input);
         result = grid2.get_solution();
     }
 
-    std::cout << "Day 02 - result of part " << part << " : " << result << std::endl;
+    std::cout << "Day 03 - result of part " << part << " : " << result << std::endl;
 
     ifs.close();
 }
