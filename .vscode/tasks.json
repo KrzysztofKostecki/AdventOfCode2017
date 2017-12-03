@@ -1,0 +1,45 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "command": "sh",
+    "type": "shell",
+    "args": ["-c"],
+    
+    "options": {
+        "cwd": "${workspaceRoot}/build"
+    },
+    "tasks": [
+        {
+            "label": "cmake",
+            "command": "cmake",
+            "args": ["-G", "'Unix Makefiles'", "-DCMAKE_BUILD_TYPE=Debug", ".."]     
+        },
+        {
+            "label": "make",
+            "command": "make",
+            "args": ["-j", "8"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "run",
+            "command": "./calendar-aoc2017",
+            "args": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ]
+}
