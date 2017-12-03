@@ -5,9 +5,14 @@ Best way to use it is to open repository folder in VS Code. Tasks are configured
 
 Steps to run:
 - make "build" directory
-  $ mkdir build
+
+  `$ mkdir build`
+  
 - generate Makefile with cmake:
-  $ cd build
-  $ cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Debug ..
+
+  `$ cd build`
+  `$ cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Debug ..`
+  
 - run makefile(in "build" directory)
-  $ make -j 8
+
+  `$ make -j 8`
