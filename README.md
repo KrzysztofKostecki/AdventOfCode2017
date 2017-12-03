@@ -11,6 +11,7 @@ Steps to run:
 - generate Makefile with cmake:
 
   `$ cd build`
+  
   `$ cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Debug ..`
   
 - run makefile(in "build" directory)
