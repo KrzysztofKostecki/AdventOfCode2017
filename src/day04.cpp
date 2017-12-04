@@ -24,7 +24,7 @@ bool chceckValid(const std::string &line, bool security_lvl2)
 {
     std::set<std::string> line_set;
     bool succeeds;
-    auto line_vec = Calendar::Helpers::parse_line_string(line, isspace);
+    auto line_vec = Calendar::Helpers::parse_line<std::string>(line, isspace);
     for (auto &&part : line_vec)
     {
         std::tie(std::ignore, succeeds) = line_set.insert(part);
