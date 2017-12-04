@@ -8,23 +8,19 @@
 bool isAnagram(const std::string &word, const std::string &word2)
 {
     std::array<int, 256> buff{};
-    for (auto &&l : word)
-    {
+    for(auto&& l: word){
         buff[l]++;
     }
-    for (auto &&l : word2)
-    {
+    for(auto&& l: word2){
         buff[l]--;
     }
-    for (auto &&l : buff)
-    {
-        if (l != 0)
-            return false;
+    for(auto&& l: buff){
+        if(l != 0) return false;
     }
     return true;
 }
 
-bool chceckValid(const std::string &line)
+bool chceckValid(const std::string &line, bool security_lvl2)
 {
     std::set<std::string> line_set;
     bool succeeds;
@@ -35,16 +31,15 @@ bool chceckValid(const std::string &line)
         if (!succeeds)
             return false;
     }
-    for (auto it = line_vec.begin(); it != line_vec.end(); it++)
-    {
-        for (auto jt = line_vec.begin(); jt != line_vec.end(); jt++)
+    if(security_lvl2)
+        for (auto it = line_vec.begin(); it != line_vec.end(); it++)
         {
-            if (it == jt)
-                continue;
-            if (isAnagram(*it, *jt))
-                return false;
+            for (auto jt = line_vec.begin(); jt != line_vec.end(); jt++)
+            {
+                if(it == jt) continue;
+                if(isAnagram(*it, *jt)) return false;
+            }
         }
-    }
     return true;
 }
 
@@ -53,13 +48,13 @@ void Calendar::Day04::run(const int part)
     assert(part == 1 || part == 2);
 
     std::ifstream ifs("../inputs/day04_input.dat");
-    int result;
+    int result = 0;
     for (std::string line; std::getline(ifs, line);)
     {
-        if (chceckValid(line))
+        if (chceckValid(line, part == 2 ? true : false))
             result++;
     }
-
+    
     std::cout << "Day 04 - result of part " << part << " : " << result << std::endl;
 
     ifs.close();
