@@ -33,5 +33,32 @@ std::vector<NumericType> parse_line(const std::string &line, DelimeterFunc &&isD
     }
     return toReturn;
 }
+template <typename DelimeterFunc>
+std::vector<std::string> parse_line_string(const std::string &line, DelimeterFunc &&isDelimeter)
+{
+    std::vector<char> buff;
+    std::vector<std::string> toReturn;
+    for (auto it = line.begin(); it != line.end(); it++)
+    {
+        if (isDelimeter(*it))
+        {
+            const std::string number(buff.begin(), buff.end());
+            toReturn.push_back(number);
+            buff.clear();
+        }
+        else
+        {
+            buff.push_back(*it);
+        }
+    }
+    //to make sure if buff is empty
+    if (!buff.empty())
+    {
+        const std::string number(buff.begin(), buff.end());
+        toReturn.push_back(number);
+        buff.clear();
+    }
+    return toReturn;
+}
 }
 }
