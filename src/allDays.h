@@ -20,4 +20,12 @@ namespace Calendar
     {
         void run(const int part = 1);
     }
+    namespace Day05
+    {
+        void run(const int part = 1);
+    }
+    namespace Day06
+    {
+        void run(const int part = 1);
+    }
 }

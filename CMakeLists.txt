@@ -6,7 +6,14 @@ set (CMAKE_CXX_STANDARD 17)
 
 set(SRC_DIR src/)
 
-set(SOURCE main.cpp ${SRC_DIR}/day01.cpp ${SRC_DIR}/day02.cpp ${SRC_DIR}/day03.cpp ${SRC_DIR}/day04.cpp)
+set(SOURCE main.cpp 
+${SRC_DIR}/day01.cpp 
+${SRC_DIR}/day02.cpp 
+${SRC_DIR}/day03.cpp 
+${SRC_DIR}/day04.cpp
+${SRC_DIR}/day05.cpp
+${SRC_DIR}/day06.cpp
+)
 
 include_directories(${SRC_DIR})
 

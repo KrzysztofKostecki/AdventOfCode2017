@@ -35,6 +35,10 @@
         "string": "cpp",
         "bitset": "cpp",
         "locale": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "sstream": "cpp",
+        "tuple": "cpp"
     }
 }
